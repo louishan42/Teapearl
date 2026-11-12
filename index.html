@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TeaPearl — How to buy the pearl</title>
+    <meta
+      name="description"
+      content="TeaPearl is pearl tea in a sealed tin. Choose a pearl, pick a size, and request it from the counter."
+    />
+    <meta name="theme-color" content="#0F411E" />
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body id="top">
+    <a class="skip" href="#buy">Skip to the counter</a>
+
+    <header class="nav" data-nav>
+      <div class="wrap nav-bar">
+        <a class="brand" href="#top">
+          <img src="assets/mark.png" alt="" width="56" height="36" />
+          <span>TeaPearl</span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          Menu
+        </button>
+        <nav id="site-nav" class="nav-links">
+          <a href="about.html">About</a>
+          <a href="#teas">The pearls</a>
+          <a href="#buy">How to buy</a>
+          <a href="#brew">Brew</a>
+          <a class="nav-cta" href="#buy">Order</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap hero-frame">
+          <div class="hero-copy">
+            <p class="eyebrow">Pearl tea, packed to order</p>
+            <h1>
+              <span class="hero-line">A leaf, closed.</span>
+              <span class="hero-accent">Into a pearl.</span>
+            </h1>
+            <div class="hero-doodle" aria-hidden="true">
+              <span class="hero-dash"></span>
+              <svg viewBox="0 0 78 18" width="78" height="18">
+                <path
+                  d="M2 11 C 14 2, 22 16, 34 9 S 54 2, 76 10"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <p class="lede">
+              Choose a pearl, pick a tin, and send us where it should go.
+              Payment happens after we confirm by email.
+            </p>
+            <a class="btn btn-start" href="#buy">Order a tin <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-orbs" aria-hidden="true">
+            <span class="orb orb-fill"></span>
+            <span class="orb orb-ring"></span>
+            <span class="orb orb-dot"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="how" aria-labelledby="how-heading">
+        <div class="wrap">
+          <h2 id="how-heading" class="visually-hidden">How buying works</h2>
+          <ol class="steps">
+            <li>
+              <span class="step-num">1</span>
+              <h3>Choose the pearl</h3>
+              <p>Jasmine, white dragon, or osmanthus. One tea per tin.</p>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <h3>Choose the tin</h3>
+              <p>Fifty grams for a month of slow cups, or a hundred to keep.</p>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <h3>Tell us where it goes</h3>
+              <p>We write back to confirm. Payment happens after that.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="teas" id="teas" aria-labelledby="teas-heading">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="eyebrow">The pearls</p>
+            <h2 id="teas-heading">Three tins to start the shop.</h2>
+            <p class="section-lede">
+              Each pearl is the same shape and a different cup. Choose one and
+              the counter follows.
+            </p>
+          </header>
+          <ul id="tea-list" class="tea-list"></ul>
+        </div>
+      </section>
+
+      <section class="buy" id="buy" aria-labelledby="buy-heading">
+        <div class="wrap buy-grid">
+          <div class="buy-story">
+            <p class="eyebrow">The counter</p>
+            <h2 id="buy-heading">Request a tin in one sitting.</h2>
+            <p class="now">
+              At the counter now:
+              <strong id="now-name">Jasmine Pearl</strong>
+            </p>
+            <ol class="story-steps">
+              <li>
+                <h3>The pearl</h3>
+                <p id="now-note">
+                  Tight green pearls rested with jasmine blossom.
+                </p>
+              </li>
+              <li>
+                <h3>The tin</h3>
+                <p>
+                  Fifty grams is about sixteen cups. A hundred grams is the
+                  caddy you leave on the shelf.
+                </p>
+              </li>
+              <li>
+                <h3>The address</h3>
+                <p>
+                  Name, email, and city. We use them to confirm this tin and
+                  to know where it should go.
+                </p>
+              </li>
+              <li>
+                <h3>The reply</h3>
+                <p>
+                  You get a request number on this page. We write to your
+                  email before any payment.
+                </p>
+              </li>
+            </ol>
+            <div class="arrives">
+              <h3>What arrives</h3>
+              <ul>
+                <li>A sealed tin of the pearl you chose</li>
+                <li>A short brew card for that tea</li>
+                <li>A paper sleeve in this green</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="counter-wrap">
+            <form id="order-form" class="counter" novalidate>
+              <div class="counter-top">
+                <p>Your tin</p>
+                <p id="counter-ref" class="counter-ref" hidden></p>
+              </div>
+
+              <div id="form-view">
+                <fieldset>
+                  <legend>Pearl</legend>
+                  <div id="tea-options" class="options" role="radiogroup" aria-label="Pearl"></div>
+                </fieldset>
+
+                <div class="split">
+                  <fieldset>
+                    <legend>Tin</legend>
+                    <div class="seg" role="radiogroup" aria-label="Tin size">
+                      <button type="button" data-size="50" aria-pressed="true">50g</button>
+                      <button type="button" data-size="100" aria-pressed="false">100g</button>
+                    </div>
+                    <p id="cup-note" class="hint">About 16 cups.</p>
+                  </fieldset>
+                  <fieldset>
+                    <legend>Quantity</legend>
+                    <div class="qty">
+                      <button type="button" id="qty-dec" aria-label="Fewer tins">−</button>
+                      <span id="qty-val" aria-live="polite">1</span>
+                      <button type="button" id="qty-inc" aria-label="More tins">+</button>
+                    </div>
+                  </fieldset>
+                </div>
+
+                <fieldset class="ship">
+                  <legend>Where it goes</legend>
+                  <label class="field">
+                    <span>Name</span>
+                    <input name="name" type="text" autocomplete="name" aria-required="true" />
+                    <small class="err" data-for="name"></small>
+                  </label>
+                  <label class="field">
+                    <span>Email</span>
+                    <input name="email" type="email" autocomplete="email" aria-required="true" />
+                    <small class="err" data-for="email"></small>
+                  </label>
+                  <label class="field">
+                    <span>City or town</span>
+                    <input name="place" type="text" autocomplete="address-level2" aria-required="true" />
+                    <small class="err" data-for="place"></small>
+                  </label>
+                  <label class="field">
+                    <span>Note <em>optional</em></span>
+                    <textarea name="note" rows="2"></textarea>
+                  </label>
+                </fieldset>
+
+                <div class="total">
+                  <div>
+                    <p id="line-item" class="line-item">Jasmine Pearl · 50g × 1</p>
+                    <p class="total-label">To confirm</p>
+                  </div>
+                  <p id="total" class="total-num">$28</p>
+                </div>
+
+                <button class="btn btn-fill btn-block" type="submit">Request this tin</button>
+                <p class="fine">
+                  Payment happens after we confirm by email. This request is
+                  kept on this device.
+                </p>
+                <button type="button" id="reopen" class="text-btn" hidden>
+                  See saved request
+                </button>
+              </div>
+
+              <div id="receipt" class="receipt" hidden>
+                <p class="receipt-kicker">Tin requested</p>
+                <p id="receipt-ref" class="receipt-ref">TP-0000</p>
+                <p id="receipt-when" class="hint"></p>
+                <dl class="receipt-list">
+                  <div>
+                    <dt>Pearl</dt>
+                    <dd id="receipt-tea"></dd>
+                  </div>
+                  <div>
+                    <dt>Tin</dt>
+                    <dd id="receipt-tin"></dd>
+                  </div>
+                  <div>
+                    <dt>For</dt>
+                    <dd id="receipt-who"></dd>
+                  </div>
+                  <div>
+                    <dt>Write to</dt>
+                    <dd id="receipt-email"></dd>
+                  </div>
+                  <div>
+                    <dt>Send to</dt>
+                    <dd id="receipt-place"></dd>
+                  </div>
+                </dl>
+                <p id="receipt-note" class="receipt-note" hidden></p>
+                <div class="total">
+                  <p class="total-label">To confirm</p>
+                  <p id="receipt-total" class="total-num">$28</p>
+                </div>
+                <p class="fine">
+                  We will write to confirm this tin before payment. Keep the
+                  request number.
+                </p>
+                <button type="button" id="edit-request" class="btn btn-line btn-block">
+                  Change this tin
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="brew" id="brew" aria-labelledby="brew-heading">
+        <div class="wrap brew-grid">
+          <div>
+            <p class="eyebrow eyebrow-light">In the cup</p>
+            <h2 id="brew-heading">How a pearl opens.</h2>
+            <p id="brew-method" class="brew-method"></p>
+          </div>
+          <dl class="brew-stats">
+            <div>
+              <dt>Water</dt>
+              <dd id="brew-temp">80°C</dd>
+            </div>
+            <div>
+              <dt>Leaf</dt>
+              <dd id="brew-pearls">3 pearls</dd>
+            </div>
+            <div>
+              <dt>Time</dt>
+              <dd id="brew-time">2 min</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-grid">
+        <div>
+          <a class="brand brand-light" href="#top">
+            <img src="assets/mark.png" alt="" width="56" height="36" />
+            <span>TeaPearl</span>
+          </a>
+          <p>Pearl tea, packed to order.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="about.html">About</a>
+          <a href="#teas">The pearls</a>
+          <a href="#buy">How to buy</a>
+          <a href="#brew">Brew</a>
+        </nav>
+        <p class="footer-mark">© 2026 TeaPearl</p>
+      </div>
+    </footer>
+
+    <div class="dock" data-dock>
+      <div>
+        <p id="dock-line">Jasmine Pearl · 50g</p>
+        <p id="dock-price">$28</p>
+      </div>
+      <a class="btn btn-fill" id="dock-action" href="#buy">Review tin</a>
+    </div>
+
+    <p id="status" class="visually-hidden" aria-live="polite"></p>
+    <script src="js/shop.js"></script>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TeaPearl — About</title>
+    <meta
+      name="description"
+      content="About TeaPearl and the five seats that run the tea room: CEO, CFO, CTP, COO, and CMO."
+    />
+    <meta name="theme-color" content="#0F411E" />
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#seats">Skip to the seats</a>
+
+    <header class="nav" data-nav>
+      <div class="wrap nav-bar">
+        <a class="brand" href="index.html">
+          <img src="assets/mark.png" alt="" width="56" height="36" />
+          <span>TeaPearl</span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          Menu
+        </button>
+        <nav id="site-nav" class="nav-links">
+          <a href="about.html" aria-current="page">About</a>
+          <a href="index.html#teas">The pearls</a>
+          <a href="index.html#buy">How to buy</a>
+          <a href="index.html#brew">Brew</a>
+          <a class="nav-cta" href="index.html#buy">Order</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="about-hero">
+        <div class="wrap">
+          <p class="eyebrow">About TeaPearl</p>
+          <h1>Five seats.<span>One tea room.</span></h1>
+          <p class="lede">
+            TeaPearl rolls loose tea into pearls and packs each tin to order.
+            These five places run the room. The names go here when you are
+            ready to fill them.
+          </p>
+        </div>
+      </section>
+
+      <section class="seats-section" id="seats" aria-labelledby="seats-heading">
+        <div class="wrap">
+          <h2 id="seats-heading" class="visually-hidden">The five seats</h2>
+          <ul class="seats">
+            <li class="seat">
+              <span class="seat-mark">CEO</span>
+              <h2>Chief Executive Officer</h2>
+              <p>Sets the direction of the tea room and what the shop stands for.</p>
+            </li>
+            <li class="seat">
+              <span class="seat-mark">CFO</span>
+              <h2>Chief Financial Officer</h2>
+              <p>Keeps the prices, the tins, and the books in one clear line.</p>
+            </li>
+            <li class="seat">
+              <span class="seat-mark">CTP</span>
+              <h2>Chief of Tea Production</h2>
+              <p>Watches the leaf, the roll, and the pearl that goes in the tin.</p>
+            </li>
+            <li class="seat">
+              <span class="seat-mark">COO</span>
+              <h2>Chief Operating Officer</h2>
+              <p>Packs the order and gets the sealed tin to the city on the request.</p>
+            </li>
+            <li class="seat">
+              <span class="seat-mark">CMO</span>
+              <h2>Chief Marketing Officer</h2>
+              <p>Tells the story of the pearl, from the counter to the cup.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-grid">
+        <div>
+          <a class="brand brand-light" href="index.html">
+            <img src="assets/mark.png" alt="" width="56" height="36" />
+            <span>TeaPearl</span>
+          </a>
+          <p>Pearl tea, packed to order.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="about.html">About</a>
+          <a href="index.html#teas">The pearls</a>
+          <a href="index.html#buy">How to buy</a>
+          <a href="index.html#brew">Brew</a>
+        </nav>
+        <p class="footer-mark">© 2026 TeaPearl</p>
+      </div>
+    </footer>
+
+    <script>
+      document.querySelector("[data-nav]").addEventListener("click", (event) => {
+        const toggle = event.target.closest(".nav-toggle");
+        const links = document.querySelector("#site-nav");
+        if (toggle) {
+          const open = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", String(!open));
+          links.classList.toggle("is-open", !open);
+          toggle.textContent = open ? "Menu" : "Close";
+          return;
+        }
+        if (event.target.closest(".nav-links a")) {
+          links.classList.remove("is-open");
+          const button = document.querySelector(".nav-toggle");
+          button.setAttribute("aria-expanded", "false");
+          button.textContent = "Menu";
+        }
+      });
+    </script>
+  </body>
+</html>
