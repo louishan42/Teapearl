@@ -6,8 +6,11 @@ const CATALOG = [
     line: "Green tea, scented at night",
     note: "Tight green pearls rested with jasmine blossom. The cup is floral, sweet, and clear.",
     tags: ["Floral", "Sweet", "Clear"],
-    prices: { 50: 28, 100: 48 },
-    cups: { 50: "About 16 cups", 100: "About 32 cups" },
+    prices: { starter: 19.9, refill: 14.9 },
+    cups: {
+      starter: "Starter Kit, SGD 19.90",
+      refill: "Refill Pack, SGD 14.90",
+    },
     brew: { temp: "80°C", pearls: "3 pearls", time: "2 min" },
     method:
       "Warm the cup. Add three pearls and water at 80°C. Steep two minutes, then a little longer the next round. The pearls open as they go.",
@@ -18,8 +21,11 @@ const CATALOG = [
     line: "Silver buds, rolled pale",
     note: "Young white tea buds rolled into soft pearls. Honey, hay, and a clean finish.",
     tags: ["Honey", "Hay", "Soft"],
-    prices: { 50: 34, 100: 58 },
-    cups: { 50: "About 16 cups", 100: "About 32 cups" },
+    prices: { starter: 19.9, refill: 14.9 },
+    cups: {
+      starter: "Starter Kit, SGD 19.90",
+      refill: "Refill Pack, SGD 14.90",
+    },
     brew: { temp: "85°C", pearls: "3 pearls", time: "3 min" },
     method:
       "Keep the water gentle, about 85°C. Three pearls, three minutes. A second steep is quieter and a little sweeter.",
@@ -30,8 +36,11 @@ const CATALOG = [
     line: "Oolong with apricot blossom",
     note: "Rolled oolong and dried osmanthus. Apricot, orchid, and a warm round finish.",
     tags: ["Apricot", "Orchid", "Warm"],
-    prices: { 50: 32, 100: 54 },
-    cups: { 50: "About 16 cups", 100: "About 32 cups" },
+    prices: { starter: 19.9, refill: 14.9 },
+    cups: {
+      starter: "Starter Kit, SGD 19.90",
+      refill: "Refill Pack, SGD 14.90",
+    },
     brew: { temp: "90°C", pearls: "3 pearls", time: "2½ min" },
     method:
       "Water just under a boil, near 90°C. Three pearls for two and a half minutes. The blossom shows up on the second steep.",
@@ -40,16 +49,22 @@ const CATALOG = [
 
 const STORAGE_KEY = "teapearl.order.v1";
 
+const PACKS = {
+  starter: "Starter Kit",
+  refill: "Refill Pack",
+};
+
 const state = {
   tea: "jasmine",
-  size: 50,
+  size: "starter",
   qty: 1,
   view: "form",
   receipt: null,
 };
 
 const $ = (sel) => document.querySelector(sel);
-const money = (n) => `$${n}`;
+const money = (n) => `SGD ${Number(n).toFixed(2)}`;
+const packName = (size) => PACKS[size] || PACKS.starter;
 
 function teaById(id) {
   return CATALOG.find((tea) => tea.id === id) || CATALOG[0];
@@ -64,7 +79,7 @@ function load() {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
     if (!saved) return;
     if (CATALOG.some((tea) => tea.id === saved.tea)) state.tea = saved.tea;
-    if (saved.size === 50 || saved.size === 100) state.size = saved.size;
+    if (saved.size === "starter" || saved.size === "refill") state.size = saved.size;
     if (saved.qty >= 1 && saved.qty <= 6) state.qty = saved.qty;
     if (saved.receipt && saved.receipt.ref) state.receipt = saved.receipt;
     if (saved.draft) {
@@ -112,7 +127,7 @@ function renderChoices() {
         <button type="button" class="tea-card${selected ? " is-selected" : ""}" data-pick="${tea.id}" aria-pressed="${selected}">
           <span class="tea-card-top">
             <span class="tea-name">${tea.name}</span>
-            <span class="tea-price">$${tea.prices[50]} <small>/ 50g</small></span>
+            <span class="tea-price">${money(tea.prices.starter)} <small>/ starter</small></span>
           </span>
           <span class="tea-line">${tea.line}</span>
           <span class="tea-note">${tea.note}</span>
@@ -152,14 +167,15 @@ function sync() {
   });
 
   document.querySelectorAll("[data-size]").forEach((button) => {
-    button.setAttribute("aria-pressed", String(Number(button.dataset.size) === state.size));
+    button.setAttribute("aria-pressed", String(button.dataset.size === state.size));
   });
 
   $("#qty-val").textContent = String(state.qty);
-  $("#cup-note").textContent = `${tea.cups[state.size]}.`;
+  const pack = packName(state.size);
+  $("#cup-note").textContent = tea.cups[state.size];
   $("#now-name").textContent = tea.name;
   $("#now-note").textContent = tea.note;
-  $("#line-item").textContent = `${tea.name} · ${state.size}g × ${state.qty}`;
+  $("#line-item").textContent = `${tea.name} · ${pack} × ${state.qty}`;
   $("#total").textContent = money(total());
   $("#brew-temp").textContent = tea.brew.temp;
   $("#brew-pearls").textContent = tea.brew.pearls;
@@ -185,7 +201,7 @@ function sync() {
     $("#receipt-ref").textContent = order.ref;
     $("#receipt-when").textContent = order.when;
     $("#receipt-tea").textContent = order.teaName;
-    $("#receipt-tin").textContent = `${order.size}g × ${order.qty}`;
+    $("#receipt-tin").textContent = `${packName(order.size)} × ${order.qty}`;
     $("#receipt-who").textContent = order.name;
     $("#receipt-email").textContent = order.email;
     $("#receipt-place").textContent = order.place;
@@ -197,9 +213,9 @@ function sync() {
     $("#dock-price").textContent = money(order.total);
     $("#dock-action").textContent = "View request";
   } else {
-    $("#dock-line").textContent = `${tea.name} · ${state.size}g × ${state.qty}`;
+    $("#dock-line").textContent = `${tea.name} · ${packName(state.size)} × ${state.qty}`;
     $("#dock-price").textContent = money(total());
-    $("#dock-action").textContent = "Review tin";
+    $("#dock-action").textContent = "Review pack";
   }
 
   save();
@@ -227,7 +243,7 @@ function validate(form) {
   let first = null;
 
   if (name.length < 2) {
-    setError("name", "Add the name for this tin.");
+    setError("name", "Add the name for this pack.");
     first = first || form.elements.name;
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -289,7 +305,7 @@ $("#tea-options").addEventListener("click", (event) => {
 
 document.querySelectorAll("[data-size]").forEach((button) => {
   button.addEventListener("click", () => {
-    state.size = Number(button.dataset.size);
+    state.size = button.dataset.size;
     state.view = "form";
     sync();
   });
@@ -321,7 +337,7 @@ $("#order-form").addEventListener("submit", (event) => {
   event.preventDefault();
   const details = validate(event.currentTarget);
   if (!details) {
-    $("#status").textContent = "Add the missing details before requesting the tin.";
+    $("#status").textContent = "Add the missing details before requesting the pack.";
     return;
   }
   const tea = teaById(state.tea);
