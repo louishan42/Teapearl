@@ -11,9 +11,9 @@ const CATALOG = [
       starter: "Starter Kit, SGD 19.90",
       refill: "Refill Pack, SGD 14.90",
     },
-    brew: { temp: "80°C", pearls: "3 pearls", time: "2 min" },
+    brew: { temp: "80°C", pearls: "1 pearl", time: "2 min" },
     method:
-      "Warm the cup. Add three pearls and water at 80°C. Steep two minutes, then a little longer the next round. The pearls open as they go.",
+      "Warm the cup. Add one pearl and water at 80°C. Steep two minutes, one pearl per two minutes. The pearl opens as it goes.",
   },
   {
     id: "white",
@@ -26,9 +26,9 @@ const CATALOG = [
       starter: "Starter Kit, SGD 19.90",
       refill: "Refill Pack, SGD 14.90",
     },
-    brew: { temp: "85°C", pearls: "3 pearls", time: "3 min" },
+    brew: { temp: "85°C", pearls: "1 pearl", time: "2 min" },
     method:
-      "Keep the water gentle, about 85°C. Three pearls, three minutes. A second steep is quieter and a little sweeter.",
+      "Keep the water gentle, about 85°C. One pearl for two minutes. A second steep is quieter and a little sweeter.",
   },
   {
     id: "osmanthus",
@@ -41,9 +41,9 @@ const CATALOG = [
       starter: "Starter Kit, SGD 19.90",
       refill: "Refill Pack, SGD 14.90",
     },
-    brew: { temp: "90°C", pearls: "3 pearls", time: "2½ min" },
+    brew: { temp: "90°C", pearls: "1 pearl", time: "2 min" },
     method:
-      "Water just under a boil, near 90°C. Three pearls for two and a half minutes. The blossom shows up on the second steep.",
+      "Water just under a boil, near 90°C. One pearl for two minutes. The blossom shows up on the second steep.",
   },
 ];
 
